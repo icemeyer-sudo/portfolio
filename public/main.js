@@ -17,7 +17,7 @@ window.addEventListener('scroll', (e) => {
     
     let speedTitle = -(window.scrollY) * 0.2;
     let speedParallax01 = -(window.scrollY) * 1;
-    let speedParallax02 = -(window.scrollY) * 0.8;
+    let speedParallax02 = -(window.scrollY) * 0.7;
     const hero = document.querySelector('#title-hero');
     const parallax01 = document.querySelector('#parallax-01');
     const parallax02 = document.querySelector('#parallax-02');
