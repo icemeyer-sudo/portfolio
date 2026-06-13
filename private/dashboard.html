@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meyer Didier | Web développeur</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav id="nav-header">
+                <ul>
+                    <li><a href="/" class="active">Didier Meyer</a></li>
+                    <li><a href="#about">À propros</a></li>
+                    <li><a href="#projects">Mes projets</a></li>
+                    <li><a href="#contact">Contactez-moi</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-dashboard">
+            <div class="div-messages">
+                <div class="hero-messages">
+                    <h2>Messages reçus</h2>
+                    
+                </div>
+                <table class="table-messages">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Messages</th>
+                        <th class="th-delete"><label><input type="checkbox" id="check-all"></label></th>
+                    </tr>
+                </table>
+            </div>
+            <div class="admin-about">
+                <h2>Section à propos</h2>
+                <form>
+                    <label for="content-about">Contenu</label>
+                    <textarea id="content-about"></textarea>
+                    <button id="post-about">Valider</button>
+                </form>
+            </div>
+        </main>
+        <script type="module" src="/admin.js"></script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meyer Didier | Web développeur</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <nav id="nav-header">
+                <ul>
+                    <li><a href="/" class="active">Didier Meyer</a></li>
+                    <li><a href="#about">À propros</a></li>
+                    <li><a href="#projects">Mes projets</a></li>
+                    <li><a href="#contact">Contactez-moi</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-login">
+            <div class="div-login">
+                <h1>Connexion au Dashboard</h1>
+                <form class="form-login">
+                    <div class="div-label">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <div class="div-label">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <div class="div-button">
+                        <button id="post">Valider</button>
+                        <button id="return">Revenir à l'accueil</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script src="login.js" defer></script>
+    </body>
+</html>
