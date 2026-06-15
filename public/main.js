@@ -1,91 +1,67 @@
-/**const container = document.querySelectorAll('.container');
-container.forEach((container) => {
-    for (let i = 0; i < 1; i++) {
-        let row = document.createElement('div');
-        row.classList.add('row-flex');
-        container.appendChild(row);
-        for (let j = 0; j < 10; j++) {
-            let column = document.createElement('div');
-            column.classList.add('row-color');
-            column.style.filter = `hue-rotate(${i * 36}deg)`;
-            row.appendChild(column);
+initParallax();
+initContactForm();
+initAboutSection();
+
+function initContactForm() {
+    const post = document.querySelector('.post');
+
+    post.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const content = document.getElementById('content');
+        
+        if (name.value === '') {
+            sendMessageEmpty();
+            return;
         }
-    }
-})**/
+        if (email.value === '') {
+            sendMessageEmpty();
+            return;
+        }
+        if (content.value === '') {
+            sendMessageEmpty();
+            return;
+        }
 
-window.addEventListener('scroll', (e) => {
-    
-    let speedTitle = -(window.scrollY) * 0.2;
-    let speedParallax01 = -(window.scrollY) * 1;
-    let speedParallax02 = -(window.scrollY) * 0.7;
-    const hero = document.querySelector('#title-hero');
-    const parallax01 = document.querySelector('#parallax-01');
-    const parallax02 = document.querySelector('#parallax-02');
-    hero.setAttribute('style', 'transform: translate(0px, ' + speedTitle + 'px)');
-    parallax01.setAttribute('style', 'transform: translate3d(0px, ' + speedParallax01 + 'px, 0px)');
-    parallax02.setAttribute('style', 'transform: translate3d(0px, ' + speedParallax02 + 'px, 0px)');
-})
+        const response = await fetch('/api/messages/post', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                name: name.value,
+                email: email.value,
+                content: content.value
+            })
+        });
 
-about();
-
-const post = document.querySelector('.post');
-
-post.addEventListener('click', async (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const content = document.getElementById('content');
-    
-    if (name.value === '') {
-        sendMessageEmpty();
-        return;
-    }
-    if (email.value === '') {
-        sendMessageEmpty();
-        return;
-    }
-    if (content.value === '') {
-        sendMessageEmpty();
-        return;
-    }
-
-    const response = await fetch('/api/messages/post', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-            name: name.value,
-            email: email.value,
-            content: content.value
-         })
+        if (response.ok) {
+            console.log('Envoyé');
+            name.value = '';
+            email.value = '';
+            content.value = '';
+        } else {
+            // Afficher un message d'erreur sans recharger
+        }
     });
+}
 
-    if (response.ok) {
-        console.log('Envoyé');
-        name.value = '';
-        email.value = '';
-        content.value = '';
-    } else {
-        // Afficher un message d'erreur sans recharger
-    }
-});
-
-function sendMessageEmpty() {
+function notifyEmptyFields() {
     console.log('Le formulaire doit être complété');
-}
+};
 
-async function about() {
-    const about = await getAbout();
-    renderAbout(about);
-}
+async function initAboutSection() {
+    const about = await fetchAboutContent();
+    renderAboutContent(about);
+};
 
-async function getAbout() {
+async function fetchAboutContent() {
     const res = await fetch('/api/about');
     const {about} = await res.json();
     return about;
-}
+};
 
-function renderAbout(about) {
+function renderAboutContent(about) {
     const skeleton = document.querySelector('.div-skeleton');
     skeleton.remove();
     const aboutSection = document.querySelector('.about-waterfall');
@@ -93,3 +69,21 @@ function renderAbout(about) {
     p.innerHTML = about;
     aboutSection.appendChild(p);
 };
+
+function initParallax() {
+    window.addEventListener('scroll', (e) => {
+    
+        let speedTitle = -(window.scrollY) * 0.3;
+        let speedParallaxForest = -(window.scrollY) * 0.55;
+        let speedParallaxMountains = -(window.scrollY) * 0.7;
+        let speedParallaxSky = -(window.scrollY) * 1;
+        const hero = document.querySelector('#title-hero');
+        const parallaxSky = document.querySelector('#parallax-sky');
+        const parallaxMountains = document.querySelector('#parallax-mountains');
+        const parallaxForest = document.querySelector('#parallax-forest');
+        hero.setAttribute('style', 'transform: translate(0px, ' + speedTitle + 'px)');
+        parallaxSky.setAttribute('style', 'transform: translate3d(0px, ' + speedParallaxForest + 'px, 0px)');
+        parallaxMountains.setAttribute('style', 'transform: translate3d(0px, ' + speedParallaxMountains + 'px, 0px)');
+        parallaxForest.setAttribute('style', 'transform: translate3d(0px, ' + speedParallaxSky + 'px, 0px)');
+    })
+}

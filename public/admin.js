@@ -1,14 +1,14 @@
-runDashboard();
+initDashboard();
 
-async function runDashboard() {
-    about();
-    sentAbout();
-    await displayMessages();
-    selectItem();
+async function initDashboard() {
+    await renderMessageTable();
+    initDeleteSelection();
+    initAboutEditor();
+    initAboutForm();
 }
 
-async function displayMessages() {
-    const messages = await getMessages();
+async function renderMessageTable() {
+    const messages = await fetchMessages();
     const table = document.querySelector('.table-messages');
     
     messages.forEach((msg) => {
@@ -34,20 +34,20 @@ async function displayMessages() {
     })
 }
 
-async function getMessages() {
+async function fetchMessages() {
     const response = await fetch('/api/messages');
     const messages = await response.json();
     return messages;
 }
 
-function openMessage(msg) {
+function handleMessageClick(msg) {
     const tr = document.querySelectorAll('tr');
     console.log(msg);
 }
 
-async function about() {
+async function initAboutEditor() {
     const about = await getAbout();
-    renderAbout(about);
+    renderAboutEditor(about);
 }
 
 async function getAbout() {
@@ -56,12 +56,12 @@ async function getAbout() {
     return about;
 }
 
-function renderAbout(about) {
+function renderAboutEditor(about) {
     const textarea = document.querySelector('#content-about');
     textarea.textContent = about;
 };
 
-function sentAbout() {
+function initAboutForm() {
 
     const post = document.querySelector('#post-about');
 
@@ -91,7 +91,7 @@ function sentAbout() {
     });
 }
 
-function selectItem() {
+function initDeleteSelection() {
     const checkboxes = document.querySelectorAll('.check-delete');
     const checkAll = document.querySelector('#check-all');
     let ids = [];
@@ -107,7 +107,7 @@ function selectItem() {
                     buttonDelete.classList.add('trash-icon');
                     buttonDelete.textContent = 'Supprimer';
                     heroMessages.append(buttonDelete);
-                    buttonDelete.addEventListener('click', () => deleteItem(checked));
+                    buttonDelete.addEventListener('click', () => deleteSelectedMessages(checked));
                 }
             } else {
                 if (document.querySelector('.trash-icon')) {
@@ -124,7 +124,7 @@ function selectItem() {
     })
 }
 
-async function deleteItem() {
+async function deleteSelectedMessages() {
     const checkboxes = document.querySelectorAll('.check-delete');
     const checked = [...checkboxes].filter(cb => cb.checked);
     const ids = checked.map(cb => cb.closest('tr').dataset.id);
