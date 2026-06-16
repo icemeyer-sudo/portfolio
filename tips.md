@@ -4,3 +4,6 @@ Dans cette exemple : element?.remove();
 
 Array.from(document.querySelectorAll('HTMLElement'));
 --> Convervit en tableau tous les éléments du DOM sélectionné
+
+width: fit-content
+--> Prend la largeur de son contenu
