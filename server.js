@@ -9,6 +9,7 @@ import authRouter from './routes/auth.js';
 import isAuthenticated from './middleware/auth.js';
 import messagesRouter from './routes/messages.js';
 import aboutRouter from './routes/about.js';
+import projectsRouter from './routes/projects.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,6 +31,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/auth', authRouter);
+app.use('/api/projects', projectsRouter);
 
 app.use('/api/about', aboutRouter);
 

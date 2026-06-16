@@ -5,6 +5,7 @@ async function initDashboard() {
     initDeleteSelection();
     initAboutEditor();
     initAboutForm();
+    initAdminProjetcts();
 }
 
 async function renderMessageTable() {
@@ -138,4 +139,25 @@ async function deleteSelectedMessages() {
         checked.forEach(cb => cb.closest('tr').remove());
         document.querySelector('.trash-icon')?.remove();
     }
+}
+
+async function initAdminProjetcts() {
+    const res = await fetch('/api/projects');
+    const projects = await res.json();
+
+    console.log(projects);
+    
+    projects.forEach(project => renderProject(project));
+}
+
+function renderProject(project) {
+    const template = document.querySelector('#project-template');
+    const clone = template.content.cloneNode(true);
+    
+    clone.querySelector('#title').value = project.title;
+    clone.querySelector('#description').value = project.description;
+    clone.querySelector('#link').value = project.link;
+    clone.querySelector('#url').value = project.cover;
+    
+    document.querySelector('.admin-projects').appendChild(clone);
 }
