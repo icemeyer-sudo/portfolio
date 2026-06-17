@@ -7,3 +7,7 @@ Array.from(document.querySelectorAll('HTMLElement'));
 
 width: fit-content
 --> Prend la largeur de son contenu
+
+element.getBoundingClientRect()
+--> Retourne un objet avec les coordonnées et dimensions d'un élément
+--> Permet également de faire un reflow (recalculer le layout)

@@ -771,7 +771,7 @@ footer ul {
     border-radius: 5px;
 }
 
-.admin-projects form div {
+.admin-projects form > div {
     display: flex;
     flex-direction: column;
     gap: .5rem;

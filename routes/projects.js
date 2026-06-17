@@ -6,7 +6,7 @@ const router = Router();
 router.get('/', async (req, res) => {
     try {
         const [rows] = await pool.promise().query(
-            'SELECT * FROM projects'
+            'SELECT * FROM projects ORDER BY position'
         );
         res.json(rows);
     } catch (error) {
