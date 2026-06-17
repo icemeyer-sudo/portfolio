@@ -44,17 +44,20 @@ function initContactForm() {
         const content = document.getElementById('content');
         
         if (name.value === '') {
-            sendMessageEmpty();
+            notifyEmptyFields();
             return;
         }
         if (email.value === '') {
-            sendMessageEmpty();
+            notifyEmptyFields();
             return;
         }
         if (content.value === '') {
-            sendMessageEmpty();
+            notifyEmptyFields();
             return;
         }
+        
+        flyLetter();
+        
 
         const response = await fetch('/api/messages/post', {
             method: 'POST',
@@ -152,4 +155,23 @@ function applyParallax() {
     
     inv.setAttribute('style', 'transform: translate3d(' + diffYInv + 'px, ' + diffYInvInv + 'px, 0px)');
 
+}
+
+function flyLetter() {
+    let letter = document.querySelector('.letter');
+    let button = document.querySelector('.post');
+    
+    
+    letter.setAttribute('style', 'transform: translate(700px, -700px)');
+    
+    
+    letter.addEventListener('transitionend', () => {
+        const div = document.querySelector('#contact > div:first-of-type');
+        const clone = letter.cloneNode(true);
+        letter.remove();
+        clone.setAttribute('style', 'transform: translate(-1000px, 1000px)');
+        div.append(clone);
+        clone.offsetHeight;
+        clone.setAttribute('style', 'transform: translate(0px, 0px)');
+    })
 }

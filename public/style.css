@@ -22,6 +22,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
+}
+
+main {
+    overflow: hidden;
 }
 
 /****************************** HEADER ******************************/
@@ -308,7 +313,8 @@ header {
     display: flex;
     justify-content: center;
     background-color: var(--white);
-    padding: 5rem 0;
+    padding: 5rem 1rem;
+    overflow: hidden;
     /* z-index: 3;
     position: relative; */
 }
@@ -332,7 +338,6 @@ header {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 0 1rem;
 }
 
 .cards {
@@ -379,20 +384,12 @@ header {
     transition: transform 0.3s ease;
 }
 
-/* .cards:nth-child(odd) img {
-    transform: rotate(5deg);
+/* .cards:nth-child(odd):hover img {
+    transform: scale(0.9) rotate(5deg);
 }
 
-.cards:nth-child(even) img {
-    transform: rotate(-5deg);
-}
-
-.cards:nth-child(odd) img:hover {
-    transform: rotate(0deg);
-}
-
-.cards:nth-child(even) img:hover {
-    transform: rotate(0deg);
+.cards:nth-child(even):hover img {
+    transform: scale(0.9) rotate(-5deg);
 } */
 
 @media (max-width: 768px) {
@@ -411,15 +408,20 @@ header {
     h2 {
         font-size: 2.5rem;
         font-weight: 600;
-        color: #000;
-        text-align: center;
+        color: #212121;
         margin-bottom: 3rem;
+        padding-bottom: .5rem;
+        border-bottom: 1px solid;
+        border-image: linear-gradient(to right, #212121 0%, transparent 100%) 1;
+        width: 50%;
     }
 }
 
 #contact > div:first-of-type {
     width: 100%;
-    max-width: 920px;
+    max-width: 1080px;
+    position: relative;
+    padding: 1rem;
 }
 
 #contact form {
@@ -459,6 +461,33 @@ header {
     border-radius: 10px;
     border: none;
 }
+
+.letter {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    transition: 2s;
+}
+
+.formAndPaper {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    
+    img {
+        padding: 3rem;
+        width: 100%;
+        height: 100%;
+        transform: translate(0px, -50px);
+    }
+}
+
+/* .letter:hover {
+    transform: translate(50px, -50px);
+} */
 
 .div-form {
     display: flex;
