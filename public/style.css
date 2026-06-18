@@ -4,6 +4,7 @@
     --white: #FAFAF7;
     --green: #379563;
     --lightgreen: #84d4c2;
+    --black: #212121;
 }
 
 html {
@@ -27,6 +28,25 @@ body {
 
 main {
     overflow: hidden;
+}
+
+.title-with-markdown {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-left: 1rem;
+}
+
+.markdown {
+    width: 1.7rem;
+    height: 2rem;
+    position: relative;
+    top: .3rem;
+    background-color: var(--green);
+    clip-path: polygon(100% 0, 100% 100%, 50% 65%, 0 100%, 0 0);
+    outline: 2px solid var(--white);
+    outline-offset: -5px;
+    box-shadow: 0 0 10px rgb(0,0,0,1);
 }
 
 /****************************** HEADER ******************************/
@@ -232,13 +252,14 @@ header {
     color: #FCFCFC;
     
     h2 {
-        width: 50%;
-        max-width: 1080px;
-        padding-bottom: 1rem;
-        padding-left: 5rem;
         font-size: 2.5rem;
         font-weight: 600;
-        border-bottom: 2px solid var(--green);
+        color: var(--white);
+        margin-bottom: 3rem;
+        padding-bottom: .5rem;
+        border-bottom: 1px solid;
+        border-image: linear-gradient(to right, var(--white) 0%, transparent 100%) 1;
+        width: 50%;
     }
     
     p {
@@ -329,9 +350,12 @@ header {
 #projects h2 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #000;
-    text-align: center;
+    color: #212121;
     margin-bottom: 3rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #212121 0%, transparent 100%) 1;
+    width: 50%;
 }
 
 .div-projects {

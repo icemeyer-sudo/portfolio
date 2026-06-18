@@ -158,6 +158,7 @@ function renderProject(project) {
     clone.querySelector('#link').value = project.link;
     clone.querySelector('#url').value = project.cover;
     clone.querySelector('.div-title').dataset.position = project.position;
+    clone.querySelector('.div-title').dataset.id = project.id;
     
     document.querySelector('.admin-projects').appendChild(clone);
 }
@@ -172,7 +173,7 @@ function moveItem(projects) {
 }
 
 function moveToUp(btn) {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
         e.preventDefault();
         
         const position = parseInt(e.target.parentNode.dataset.position);
@@ -186,6 +187,27 @@ function moveToUp(btn) {
         
         currentElement.dataset.position = newPosition;
         topElement.dataset.position = position;
+        
+        const currentId = parseInt(currentElement.dataset.id);
+        const topId = parseInt(topElement.dataset.id);
+        
+        const response = await fetch('/api/projects/positions', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                swaps: [
+                    { id: currentId, position: newPosition },
+                    { id: topId,     position: position }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            // Annuler le swap visuel si la requête échoue
+            currentElement.dataset.position = position;
+            topElement.dataset.position = newPosition;
+            return;
+        }
         
         const currentContainer = currentElement.closest('.admin-projects > *');
         const topContainer = topElement.closest('.admin-projects > *');
@@ -224,7 +246,7 @@ function moveToUp(btn) {
 }
 
 function moveToDown(btn) {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
         e.preventDefault();
         
         const position = parseInt(e.target.parentNode.dataset.position);
@@ -238,6 +260,27 @@ function moveToDown(btn) {
         
         currentElement.dataset.position = newPosition;
         downElement.dataset.position = position;
+        
+        const currentId = parseInt(currentElement.dataset.id);
+        const downId = parseInt(downElement.dataset.id);
+        
+        const response = await fetch('/api/projects/positions', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                swaps: [
+                    { id: currentId, position: newPosition },
+                    { id: downId,     position: position }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            // Annuler le swap visuel si la requête échoue
+            currentElement.dataset.position = position;
+            topElement.dataset.position = newPosition;
+            return;
+        }
         
         const currentContainer = currentElement.closest('.admin-projects > *');
         const downContainer = downElement.closest('.admin-projects > *');
