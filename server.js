@@ -41,6 +41,10 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
+app.get('/parallax', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'parallax.html'));
+});
+
 // Route protégée (à compléter plus tard avec le middleware auth)
 // app.get('/dashboard', isAuthenticated, (req, res) => {
 app.get('/dashboard', (req, res) => {
