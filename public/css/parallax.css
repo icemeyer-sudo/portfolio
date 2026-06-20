@@ -1,3 +1,6 @@
+/****************************** GLOBAL ******************************/
+/********************************************************************/
+
 :root {
     --darkgreen: #0b1411;
     --skyblue: #bfeaf3;
@@ -15,15 +18,6 @@ html {
 
 a {
     color: inherit;
-}
-
-/****************************** GLOBAL ******************************/
-/********************************************************************/
-
-html {
-    font-size: 16px;
-    font-family: "Roboto";
-    scroll-behavior: smooth;
 }
 
 /****************************** HEADER ******************************/
@@ -78,8 +72,7 @@ header {
 
 .hero {
     width: 100%;
-    height: 100vh;
-    position: fixed;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,22 +100,6 @@ header {
         font-size: 1.5rem;
         text-shadow: 0 0 5px rgb(0,0,0,0.3);
     }
-    
-    button {
-        background-color: var(--green);
-        color: #FAFAF7;
-        padding: 0.5rem 1rem;
-        font-size: 1.1rem;
-        border-radius: 5px;
-        border: none;
-        margin-top: 1rem;
-        box-shadow: 0 0 5px rgb(0,0,0,0.3);
-    }
-    
-    button:hover {
-        background-color: var(--darkgreen);
-        cursor: pointer;
-    }
 }
 
 
@@ -140,7 +117,6 @@ header {
 .parallax-01 {
     width: 100%;
     height: 50vh;
-    margin-top: 50vh;
     background-image: url("../img/parallax_sky.png");
     background-size: auto 550px;
     background-repeat: no-repeat;
@@ -152,7 +128,6 @@ header {
 .parallax-02 {
     width: 100%;
     height: 50vh;
-    margin-top: 50vh;
     background-image: url("../img/parallax_mountains.png");
     background-size: auto 550px;
     background-repeat: no-repeat;
@@ -164,7 +139,6 @@ header {
 .parallax-03 {
     width: 100%;
     height: 50vh;
-    margin-top: 50vh;
     background-image: url("../img/parallax_forest.png");
     background-size: auto 550px;
     background-repeat: no-repeat;

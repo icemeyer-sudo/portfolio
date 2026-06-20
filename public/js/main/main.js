@@ -1,5 +1,6 @@
+import '/js/contact-form/form.js';
+
 initParallax();
-initContactForm();
 initAboutSection();
 initProjectsSection();
 
@@ -32,57 +33,6 @@ function renderProjectsContent(projects) {
         
     }
 }
-
-function initContactForm() {
-    const post = document.querySelector('.post');
-
-    post.addEventListener('click', async (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const content = document.getElementById('content');
-        
-        if (name.value === '') {
-            notifyEmptyFields();
-            return;
-        }
-        if (email.value === '') {
-            notifyEmptyFields();
-            return;
-        }
-        if (content.value === '') {
-            notifyEmptyFields();
-            return;
-        }
-        
-        flyLetter();
-        
-
-        const response = await fetch('/api/messages/post', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                name: name.value,
-                email: email.value,
-                content: content.value
-            })
-        });
-
-        if (response.ok) {
-            console.log('Envoyé');
-            name.value = '';
-            email.value = '';
-            content.value = '';
-        } else {
-            // Afficher un message d'erreur sans recharger
-        }
-    });
-}
-
-function notifyEmptyFields() {
-    console.log('Le formulaire doit être complété');
-};
 
 async function initAboutSection() {
     const about = await fetchAboutContent();
@@ -155,23 +105,4 @@ function applyParallax() {
     
     inv.setAttribute('style', 'transform: translate3d(' + diffYInv + 'px, ' + diffYInvInv + 'px, 0px)');
 
-}
-
-function flyLetter() {
-    let letter = document.querySelector('.letter');
-    let button = document.querySelector('.post');
-    
-    
-    letter.setAttribute('style', 'transform: translate(700px, -700px)');
-    
-    
-    letter.addEventListener('transitionend', () => {
-        const div = document.querySelector('#contact > div:first-of-type');
-        const clone = letter.cloneNode(true);
-        letter.remove();
-        clone.setAttribute('style', 'transform: translate(-1000px, 1000px)');
-        div.append(clone);
-        clone.offsetHeight;
-        clone.setAttribute('style', 'transform: translate(0px, 0px)');
-    })
 }

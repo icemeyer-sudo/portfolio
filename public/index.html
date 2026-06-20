@@ -3,13 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>Meyer Didier | Web développeur</title>
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=block" rel="stylesheet">
     </head>
     <body>
+        <template id="alert">
+        <div class="alert-form-container">
+            <div class="alert-form">
+                <p>Message</p>
+                <span class="close-alert">X</span>
+            </div>
+        </div>
+        </template>
         <header>
             <nav id="nav-header">
                 <ul>
@@ -26,7 +34,7 @@
                     <h1>Développeur_<span>web</span></h1>
                     <h2>Didier Meyer</h2>
                     <p>Vous avez un projet de site web ?</p>
-                    <a href="#contact"><button>Lancez-vous</button></a>
+                    <!-- <a href="#contact"><button>Lancez-vous</button></a> -->
                 </div>
                 <div id="parallax-sky"></div>
                 <div id="parallax-mountains"></div>
@@ -119,6 +127,6 @@
                 </ul>
             </div>
         </footer>
-        <script src="main.js" type="module" defer></script>
+        <script src="js/main/main.js" type="module" defer></script>
     </body>
 </html>

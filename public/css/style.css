@@ -23,7 +23,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
 }
 
 main {
@@ -49,12 +48,72 @@ main {
     box-shadow: 0 0 10px rgb(0,0,0,1);
 }
 
+/****************************** ALERTES ******************************/
+/*********************************************************************/
+
+.alert-form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
+
+.alert-form {
+    width: 100%;
+    max-width: 1080px;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0,0,0,0.3);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    span {
+        width: 15px;
+        height: 20px;
+        line-height: 20px;
+        margin-left: auto;
+        text-align: center;
+        vertical-align: middle;
+    }
+    
+    span:hover {
+        cursor: pointer;
+    }
+}
+
+.alert-form::before {
+    content: '';
+    width: 15px;
+    height: 20px;
+    background-color: var(--white);
+    clip-path: polygon(100% 0, 100% 100%, 50% 65%, 0 100%, 0 0);
+}
+
+.--success {
+    background-color: var(--green);
+}
+
+.--incomplete {
+    background-color: var(--green);
+    filter: hue-rotate(125deg);
+}
+
+.--error {
+    background-color: var(--green);
+    filter: hue-rotate(215deg);
+}
+
 /****************************** HEADER ******************************/
 /********************************************************************/
 
 header {
     padding: 0 1rem;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -64,7 +123,6 @@ header {
 #nav-header {
     max-width: 1080px;
     width: 100%;
-    max-width: 1080px;
     margin: auto;
     background-color: rgba(255,255,255, 0.6);
     backdrop-filter: blur(4px);
@@ -107,6 +165,7 @@ header {
     flex-direction: column;
     align-items: center;
     background: linear-gradient(var(--skyblue) 0%, var(--white) 70%);
+    overflow: hidden;
     /*background: linear-gradient(rgb(191,234,243) 0%, #bfeaf3 70%, #0b1411 100%);*/
     
     h1 {
@@ -336,8 +395,8 @@ header {
     background-color: var(--white);
     padding: 5rem 1rem;
     overflow: hidden;
-    /* z-index: 3;
-    position: relative; */
+    z-index: 3;
+    position: relative;
 }
 
 #projects > div:first-of-type {
@@ -428,6 +487,8 @@ header {
     justify-content: center;
     background-color: #FAFAF7;
     padding: 5rem 1rem;
+    position: relative;
+    z-index: 2;
     
     h2 {
         font-size: 2.5rem;
@@ -585,6 +646,8 @@ header {
 footer {
     background-color: var(--darkgreen);
     color: var(--white);
+    position: relative;
+    z-index: 2;
 }
 
 footer > div {
