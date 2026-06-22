@@ -1,5 +1,5 @@
 import paperPlane from '/js/contact-form/paper-plane.js';
-import showAlert from '/js/contact-form/alert.js';
+import showAlert from '/js/alert/alert.js';
 
 const form = document.querySelector('#contact form');
 

@@ -1,7 +1,7 @@
 const parallaxElements = [
     [document.querySelector('.parallax-01'), 0.4],
     [document.querySelector('.parallax-02'), 0.2],
-    [document.querySelector('.hero'), 0.8],
+    [document.querySelector('.hero'), 1],
 ];
 
 window.addEventListener('scroll', applyParallax);

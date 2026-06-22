@@ -1,65 +1,62 @@
 import '/js/contact-form/form.js';
+import getAbout from '/js/services/about/getAbout.js';
+import getProjects from '/js/services/projects/getProjects.js';
+
+const SKELETON_DELAY = 500;
 
 initParallax();
-initAboutSection();
-initProjectsSection();
+initAbout();
+initProjects();
 
-async function initProjectsSection() {
-    const projects = await fetchProjectsContent();
-    renderProjectsContent(projects);
+async function initProjects() {
+    
+    const [projects] = await Promise.all([
+        getProjects(),
+        new Promise(resolve => setTimeout(resolve, SKELETON_DELAY))
+    ]);
+    
+    renderProjects(projects);
 }
 
-async function fetchProjectsContent() {
-    const res = await fetch('/api/projects');
-    const projects = await res.json();
-    console.log(projects);
-    return projects;
+async function initAbout() {
+    
+    const [about] = await Promise.all([
+        getAbout(),
+        new Promise(resolve => setTimeout(resolve, SKELETON_DELAY))
+    ]);
+    
+    renderAbout(about);
 }
 
-function renderProjectsContent(projects) {
+function renderProjects(projects) {
+    
     const cards = document.querySelectorAll('.cards');
+    
     for (let i = 0; i < projects.length; i++) {
-        const title = cards[i].querySelector('h3');
-        title.textContent = projects[i].title;
         
-        const description = cards[i].querySelector('p');
-        description.textContent = projects[i].description;
-        
-        const link = cards[i].querySelector('a');
-        link.textContent = projects[i].link;
-        
-        const image = cards[i].querySelector('img');
-        image.src = projects[i].cover;
-        
+        cards[i].querySelector('h3').textContent = projects[i].title;
+        cards[i].querySelector('p').textContent = projects[i].description;
+        cards[i].querySelector('a').textContent = projects[i].link;
+        cards[i].querySelector('img').src = projects[i].cover;
     }
 }
 
-async function initAboutSection() {
-    const about = await fetchAboutContent();
-    renderAboutContent(about);
-};
-
-async function fetchAboutContent() {
-    const res = await fetch('/api/about');
-    const {about} = await res.json();
-    return about;
-};
-
-function renderAboutContent(about) {
-    const skeleton = document.querySelector('.div-skeleton');
-    skeleton.remove();
-    const aboutSection = document.querySelector('.about-waterfall');
+function renderAbout(about) {
+    
+    document.querySelector('.div-skeleton').remove();
     const p = document.createElement('p');
     p.innerHTML = about;
-    aboutSection.appendChild(p);
-};
+    document.querySelector('.about-waterfall').appendChild(p);
+}
 
 function initParallax() {
+    
     window.addEventListener('scroll', applyParallax);
     applyParallax();
 }
 
 function applyParallax() {
+    
     let speedTitle = -(window.scrollY) * 0.3;
     let speedParallaxForest = -(window.scrollY) * 0.55;
     let speedParallaxMountains = -(window.scrollY) * 0.7;

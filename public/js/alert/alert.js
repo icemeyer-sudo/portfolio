@@ -1,9 +1,9 @@
 function showAlert(type) {
     
     const alert = {
-        incomplete: { message: 'Formulaire incomplet', class: '--incomplete' },
-        success: { message: 'Message Envoyé', class: '--success' },
-        error: { message: 'Erreur serveur', class: '--error' }
+        incomplete: { message: 'Tous les champs du formulaire doivent être complétés', class: '--incomplete' },
+        success: { message: 'Message envoyé avec succès', class: '--success' },
+        error: { message: 'Une erreur est survenue, veuillez réessayer', class: '--error' }
     };
     
     const clone = document.querySelector('#alert').content.cloneNode(true);

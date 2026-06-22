@@ -78,6 +78,7 @@ header {
     align-items: center;
     padding-top: 20vh;
     gap: 1rem;
+    position: absolute;
     
     
     h1 {
@@ -122,6 +123,7 @@ header {
     background-repeat: no-repeat;
     background-position: bottom center;
     position: absolute;
+    bottom: 0;
     z-index: 2;
 }
 
@@ -133,6 +135,7 @@ header {
     background-repeat: no-repeat;
     background-position: bottom center;
     position: absolute;
+    bottom: 0;
     z-index: 3;
 }
 
@@ -144,6 +147,7 @@ header {
     background-repeat: no-repeat;
     background-position: bottom center;
     position: absolute;
+    bottom: 0;
     z-index: 4;
 }
 
