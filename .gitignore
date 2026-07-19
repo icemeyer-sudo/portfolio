@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+serveur-commandes.md
+tips.md
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

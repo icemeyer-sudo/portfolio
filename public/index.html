@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Didier Meyer | Développeur Web Freelance – Jura (39)</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="canonical" href="https://didier-meyer.fr">
+        <meta name="description" content="Développeur web freelance basé dans le Jura (39). Création de sites web sur mesure pour PME et particuliers. Devis gratuit.">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+        <script type="application/ld+json">
+           {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Didier Meyer - Développeur Web Freelance",
+            "description": "Développeur web freelance basé dans le Jura (39). Création de sites web sur mesure pour PME et particuliers.",
+            "url": "https://didier-meyer.fr",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "20 rue Lafayette",
+                "addressLocality": "Lons-le-Saunier",
+                "postalCode": "39000",
+                "addressCountry": "FR"
+            },
+            "areaServed": [
+                { "@type": "AdministrativeArea", "name": "Jura" },
+                { "@type": "AdministrativeArea", "name": "Bourgogne-Franche-Comté" }
+            ],
+            "makesOffer": {
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": "Développement web sur mesure"
+                },
+                "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "description": "Sur devis"
+                }
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <template id="alert">
+            <div class="alert-form-container">
+                <div class="alert-form">
+                    <p>Message</p>
+                    <span class="close-alert">X</span>
+                </div>
+            </div>
+        </template>
+        <header>
+            <nav id="nav-header">
+                <ul>
+                    <li class="active"><a href="/">Didier Meyer</a></li>
+                    <li class="nav-mobile"><a href="#about">À propros</a></li>
+                    <li class="nav-mobile"><a href="#projects">Mes projets</a></li>
+                    <li class="nav-mobile"><a href="#contact">Contactez-moi</a></li>
+                    <li class="nav-hamburger"><img src="img/hamburger.png" alt="Icone du menu"/></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="menu-hamburger">
+            <ul>
+                <li><a href="#about" class="link-hamburger"><div class="markdown"></div>À propros</a></li>
+                <li><a href="#projects" class="link-hamburger"><div class="markdown"></div>Mes projets</a></li>
+                <li><a href="#contact" class="link-hamburger"><div class="markdown"></div>Contactez-moi</a></li>
+            </ul>
+        </div>
+        <main>
+            <section id="hero-section">
+                <div id="title-hero">
+                    <h1>Développeur_<span>web</span></h1>
+                    <h2>Didier Meyer</h2>
+                    <p>Vous avez un projet de site web ?</p>
+                    <!-- <a href="#contact"><button>Lancez-vous</button></a> -->
+                </div>
+                <div id="hero-mobile"></div>
+                <div id="parallax-sky"></div>
+                <div id="parallax-mountains"></div>
+                <div id="parallax-forest"></div>
+            </section>
+            <section id="about">
+                <div>
+                    <div class="title-with-markdown"><div class="markdown"></div><h2>Qui suis-je ?</h2></div>
+                    <div class="about-waterfall">
+                        <img src="img/dev-back-mini.webp" alt="Image d'illustration de code">
+                        <div class="div-skeleton">
+                            <span class="span-skeleton"></span>
+                            <span class="span-skeleton"></span>
+                            <span class="span-skeleton"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="projects">
+                <div>
+                    <div class="title-with-markdown"><div class="markdown"></div><h2>Mes projets</h2></div>
+                    <div class="div-projects">
+                        <template id="projects-template">
+                            <div class="cards">
+                                <div class="cards-image">
+                                    <img src="" loading="lazy" alt="" class="card-image">
+                                </div>
+                                <div class="cards-description">
+                                    <h3 class="card-title"></h3>
+                                    <p class="card-description"></p>
+                                    <a href="#" class="card-link"></a>
+                                    <p class="class-technologies"></p>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </section>
+            <section id="skills">
+                <div>
+                    <div class="title-with-markdown"><div class="markdown"></div><h2 class="title-section">Mes compétences</h2></div>
+                    <div class="container-skills">
+                        <article class="cards-skills">
+                            <h3><img src="img/heart.svg" />Mes outils préférés</h3>
+                            <div class="list-stack">
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-js.webp" alt="Logo Javascript" />
+                                    <figcaption>Javascript</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-php.webp" alt="Logo PHP" />
+                                    <figcaption>PHP</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-node.webp" alt="Logo NodeJS" />
+                                    <figcaption>NodeJS</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-mysql.webp" alt="Logo MySQL" />
+                                    <figcaption>MySQL</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-git.webp" alt="Logo Git" />
+                                    <figcaption>Git</figcaption>
+                                </figure>
+                            </div>
+                        </article>
+                        <article class="cards-skills">
+                            <h3><img src="img/network.svg" />Les outils que j'utilise au quotidien</h3>
+                            <div class="list-stack">
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-html.webp" alt="logo HTML5" />
+                                    <figcaption>HTML</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-css.webp" alt="Logo CSS3" />
+                                    <figcaption>CSS</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-react.webp" alt="Logo ReactJS" />
+                                    <figcaption>ReactJS</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-mongodb.webp" alt="Logo MongoDB" />
+                                    <figcaption>MongoDB</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-figma.webp" alt="Logo Figma" />
+                                    <figcaption>Figma</figcaption>
+                                </figure>
+                                <figure class="stack-item">
+                                    <img src="img/logo/logo-sass.webp" alt="Logo SaSS" />
+                                    <figcaption>SaSS</figcaption>
+                                </figure>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section id="studies">
+                <div>
+                    <div class="title-with-markdown"><div class="markdown"></div><h2 class="title-section">Mon parcours</h2></div>
+                </div>
+                <article class="container-studies">
+                    <img src="img/studies.webp" alt="Image d'illustration d'études"/>
+                    <div>
+                        <h3><img src="img/school.svg" />20 ans de passion</h3>
+                        <ul>
+                            <li>2005 - Premiers pas en autodidacte</li>
+                            <li>2009 - Première livraison d'un site vitrine pour une entreprise</li>
+                            <li>2011 - Création d'un fan-site pour World of Warcraft (actualisé pendant 2 ans)</li>
+                            <li>2026 - Formation de developpeur web chez OpenclassRooms</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+            <section id="contact">
+                <div>
+                    <img src="/img/lettre-mini.webp" alt="Symbole d'une lettre" class="letter">
+                    <div class="title-with-markdown"><div class="markdown"></div><h2>Contactez-moi</h2></div>
+                    <form>
+                        <div class="div-form">
+                            <div class="div-input honeypot-field">
+                                <label for="website">Site web</label>
+                                <input type="text" name="website" id="website" autocomplete="off" tabindex="-1">
+                            </div>
+                            <div class="div-input">
+                                <label for="name">Nom</label>
+                                <input type="text" name="name" id="name" autocomplete="name" required>
+                            </div>
+                            <div class="div-input">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" autocomplete="email" required>
+                            </div>
+                        </div>
+                        <div  class="div-input one-column">
+                            <label for="content">Message</label>
+                            <textarea name="content" id="content"></textarea>
+                        </div>
+                        <div class="button-form">
+                            <button class="post">Envoyez</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div>
+                <ul>
+                    <li>© Didier Meyer</li>
+                    <li>20 rue Lafayette - 39000 Lons-le-Saunier</li>
+                </ul>
+            </div>
+        </footer>
+        <script src="js/main/main.js" type="module"></script>
+    </body>
+</html>

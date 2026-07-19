@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meyer Didier | Web développeur</title>
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <template id="alert">
+            <div class="alert-form-container">
+                <div class="alert-form">
+                    <p>Message</p>
+                    <span class="close-alert">X</span>
+                </div>
+            </div>
+        </template>
+        <header>
+            <nav id="nav-header">
+                <ul>
+                    <li><a href="/" class="active">Didier Meyer</a></li>
+                    <li><a href="#about">À propros</a></li>
+                    <li><a href="#projects">Mes projets</a></li>
+                    <li><a href="#contact">Contactez-moi</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-dashboard">
+            <div class="div-messages">
+                <div class="hero-messages">
+                    <h2>Messages reçus</h2>
+                    
+                </div>
+                <table class="table-messages">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Messages</th>
+                        <th class="th-delete"><label><input type="checkbox" id="check-all"></label></th>
+                    </tr>
+                </table>
+            </div>
+            <div class="admin-about">
+                <h2>Section à propos</h2>
+                <form>
+                    <label for="content-about">Contenu</label>
+                    <textarea id="content-about"></textarea>
+                    <button id="post-about">Valider</button>
+                </form>
+            </div>
+            <div class="admin-projects">
+                <h2>Section projets</h2>
+                <template id="project-template">
+                    <form>
+                        <div>
+                            <label for="title">Titre</label>
+                            <div class="div-title">
+                                <input type="text" id="title">
+                                <button class="move-up">Up</button>
+                                <button class="move-down">Down</button>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="description">Description</label>
+                            <textarea id="description"></textarea>
+                        </div>
+                        <div>
+                            <label for="link">Lien vers le site</label>
+                            <input type="text" id="link">
+                        </div>
+                        <div>
+                            <label for="url">Url</label>
+                            <input type="text" id="url">
+                        </div>
+                        <button class="post-project">Valider</button>
+                    </form>
+                </template>
+            </div>
+            <div class="admin-stacks">
+                <h2>Section stacks</h2>
+                <div class="stacks-list">
+                </div>
+                <form id="form-add-stack">
+                    <input type="text" id="stack-name" placeholder="Nom (ex: React)">
+                    <input type="text" id="stack-logo" placeholder="Chemin logo (ex: img/logo/logo-react.webp)">
+                    <button type="submit">Ajouter</button>
+                </form>
+            </div>
+        </main>
+        <script type="module" src="/js/admin/admin.js"></script>
+    </body>
+</html>
